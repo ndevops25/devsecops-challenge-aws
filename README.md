@@ -1,14 +1,18 @@
-# devsecops-challenge-oci
-Challenge Infraestructure develop with Terraform, provided in OCI cloud
+# devsecops-challenge-aws
+Challenge Infraestructure develop with Terraform, provided in AWS cloud
 
 🏭 Estrutura Otimizada - Sistema de Manutenção Preditiva Industrial
 ===================================================================
+
+<img src="/docs/arquitecture/images/aws-arquitecture-solution.png" alt="arquitecture">
+
+Visao Geral:
 
 📁 Estrutura Principal Otimizada
 --------------------------------
 
 ```
-predictive-maintenance-oci/
+devsecops-challenge-aws/
 ├── 📄 README.md                             # Documentação geral do projeto
 ├── 📄 .gitignore                            # Arquivos e pastas a serem ignorados pelo Git
 ├── 📄 docker-compose.yml                    # Para orquestração local de microserviços em desenvolvimento
