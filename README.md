@@ -4,7 +4,7 @@ Challenge Infraestructure develop with Terraform, provided in AWS cloud
 🏭 Estrutura Otimizada - Sistema de Manutenção Preditiva Industrial
 ===================================================================
 
-<img src="/docs/arquitecture/images/aws-arquitecture-solution.png" alt="arquitecture">
+<img src="/docs/arquitecture/images/aws-oci-multicloud.png" alt="arquitecture">
 
 Visao Geral:
 

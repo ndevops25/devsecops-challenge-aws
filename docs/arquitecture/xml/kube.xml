@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-09-21T00:00:00.000Z" agent="5.0" etag="microservices-k8s" version="21.6.8" type="device">
+  <diagram name="Microservices-K8s-Compact" id="microservices-k8s">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- AWS EKS Cluster -->
+        <mxCell id="aws-eks-cluster" value="AWS EKS CLUSTER - FRONTEND &amp; GATEWAY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#ffffff;fontSize=13;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="440" height="240" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Node 1 -->
+        <mxCell id="aws-node-1" value="NODE 1 (c5.large)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#374151;strokeColor=#1F2937;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="200" height="200" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 1: API Gateway -->
+        <mxCell id="pod-api-gateway" value="POD: API-GATEWAY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="api-gateway-container" value="API GATEWAY&lt;br&gt;Port: 8080&lt;br&gt;CPU: 300m | Mem: 256Mi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="auth-sidecar" value="AUTH PROXY&lt;br&gt;OAuth2&lt;br&gt;CPU: 100m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="175" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 2: Dashboard Frontend -->
+        <mxCell id="pod-dashboard" value="POD: DASHBOARD-FRONTEND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="react-container" value="REACT APP&lt;br&gt;Port: 3000&lt;br&gt;CPU: 200m | Mem: 256Mi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BA68C8;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="nginx-sidecar" value="NGINX&lt;br&gt;Port: 80&lt;br&gt;CPU: 50m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BA68C8;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="175" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Node 2 -->
+        <mxCell id="aws-node-2" value="NODE 2 (c5.large)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#374151;strokeColor=#1F2937;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="200" height="200" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 3: DevSecOps Tools -->
+        <mxCell id="pod-devsecops" value="POD: DEVSECOPS-TOOLS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF5722;strokeColor=#D84315;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="290" y="100" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="sonarqube-container" value="SONARQUBE&lt;br&gt;Port: 9000&lt;br&gt;CPU: 500m | Mem: 1Gi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF7043;strokeColor=#D84315;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="trivy-container" value="TRIVY SCANNER&lt;br&gt;Port: 8080&lt;br&gt;CPU: 200m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF7043;strokeColor=#D84315;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="385" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 4: Monitoring -->
+        <mxCell id="pod-monitoring-aws" value="POD: MONITORING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607D8B;strokeColor=#455A64;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="290" y="180" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="prometheus-container" value="PROMETHEUS&lt;br&gt;Port: 9090&lt;br&gt;CPU: 200m | Mem: 512Mi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#78909C;strokeColor=#455A64;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="grafana-container" value="GRAFANA&lt;br&gt;Port: 3000&lt;br&gt;CPU: 100m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#78909C;strokeColor=#455A64;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="385" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle OKE Cluster -->
+        <mxCell id="oracle-oke-cluster" value="ORACLE OKE CLUSTER - BACKEND &amp; ML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D32F2F;strokeColor=#B71C1C;fontColor=#ffffff;fontSize=13;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="510" y="50" width="440" height="240" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Node 1 -->
+        <mxCell id="oracle-node-1" value="NODE 1 (VM.Standard.E4.Flex)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A148C;strokeColor=#311B92;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="530" y="80" width="200" height="200" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 5: IoT Data Service -->
+        <mxCell id="pod-iot-service" value="POD: IOT-DATA-SERVICE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="540" y="100" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="iot-service-container" value="IOT SERVICE&lt;br&gt;Port: 8081&lt;br&gt;CPU: 500m | Mem: 512Mi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="550" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mqtt-proxy" value="MQTT PROXY&lt;br&gt;Port: 8883&lt;br&gt;CPU: 100m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="635" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 6: ML Prediction Service -->
+        <mxCell id="pod-ml-prediction" value="POD: ML-PREDICTION-SERVICE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="540" y="180" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ml-service-container" value="ML ENGINE&lt;br&gt;Port: 8082&lt;br&gt;CPU: 1000m | Mem: 2Gi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#F57C00;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="550" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="model-cache" value="MODEL CACHE&lt;br&gt;Redis&lt;br&gt;CPU: 200m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#F57C00;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="635" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Node 2 -->
+        <mxCell id="oracle-node-2" value="NODE 2 (VM.Standard.E4.Flex)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A148C;strokeColor=#311B92;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="740" y="80" width="200" height="200" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 7: Analytics Service -->
+        <mxCell id="pod-analytics" value="POD: ANALYTICS-SERVICE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3F51B5;strokeColor=#303F9F;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="750" y="100" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="analytics-container" value="ANALYTICS ENGINE&lt;br&gt;Port: 8083&lt;br&gt;CPU: 800m | Mem: 1Gi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5C6BC0;strokeColor=#303F9F;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="760" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="spark-engine" value="SPARK STREAM&lt;br&gt;Port: 4040&lt;br&gt;CPU: 500m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5C6BC0;strokeColor=#303F9F;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="845" y="120" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pod 8: Oracle AI Assistant -->
+        <mxCell id="pod-ai-assistant" value="POD: AI-ASSISTANT-SERVICE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E91E63;strokeColor=#C2185B;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="750" y="180" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ai-assistant-container" value="ORACLE AI&lt;br&gt;Port: 8084&lt;br&gt;CPU: 600m | Mem: 1Gi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F06292;strokeColor=#C2185B;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="760" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="nlp-engine" value="NLP ENGINE&lt;br&gt;Chat Bot&lt;br&gt;CPU: 400m" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F06292;strokeColor=#C2185B;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="845" y="200" width="75" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Services and Connections -->
+        <mxCell id="services-section" value="KUBERNETES SERVICES &amp; NETWORKING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="310" width="900" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Services -->
+        <mxCell id="aws-services" value="AWS SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#1565C0;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="340" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-service-1" value="api-gateway-svc&lt;br&gt;ClusterIP: 8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-service-2" value="dashboard-svc&lt;br&gt;LoadBalancer: 80" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="170" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-ingress" value="INGRESS: aws-ingress&lt;br&gt;ALB Controller | HTTPS: 443" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="170" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- Cross-Cloud Communication -->
+        <mxCell id="cross-cloud-comm" value="CROSS-CLOUD COMMUNICATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="290" y="340" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="service-mesh" value="ISTIO SERVICE MESH&lt;br&gt;Cross-Cluster Comm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF6F00;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="kafka-bridge" value="KAFKA BRIDGE&lt;br&gt;Event Streaming" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF6F00;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="390" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="fastconnect" value="FASTCONNECT&lt;br&gt;25Gbps Dedicated Link" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8F00;strokeColor=#E65100;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="170" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Services -->
+        <mxCell id="oracle-services" value="ORACLE SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D32F2F;strokeColor=#B71C1C;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="510" y="340" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-service-1" value="iot-service-svc&lt;br&gt;ClusterIP: 8081" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#D32F2F;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="520" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-service-2" value="ml-prediction-svc&lt;br&gt;ClusterIP: 8082" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#D32F2F;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="610" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-ingress" value="INGRESS: oracle-ingress&lt;br&gt;OCI LB | HTTPS: 443" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B71C1C;strokeColor=#8D1E1E;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="520" y="390" width="170" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- Storage and Config -->
+        <mxCell id="storage-config" value="STORAGE &amp; CONFIG" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#795548;strokeColor=#5D4037;fontColor=#ffffff;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="730" y="340" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="pv-claims" value="PVC: ml-models (50Gi)&lt;br&gt;PVC: iot-data (10Gi)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D6E63;strokeColor=#5D4037;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="740" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="config-maps" value="ConfigMaps&lt;br&gt;Secrets Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D6E63;strokeColor=#5D4037;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="830" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="storage-classes" value="StorageClass: gp3 (AWS)&lt;br&gt;StorageClass: oci-bv (Oracle)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6D4C41;strokeColor=#5D4037;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="740" y="390" width="170" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- External Connections -->
+        <mxCell id="external-connections" value="EXTERNAL INTEGRATIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="900" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Database Connections -->
+        <mxCell id="db-connections" value="DATABASE CONNECTIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8E24AA;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="db-details" value="• RDS PostgreSQL (AWS)&lt;br&gt;• Oracle Autonomous DB&lt;br&gt;• Redis Cache (Both)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BA68C8;strokeColor=#8E24AA;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="515" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Message Queues -->
+        <mxCell id="message-queues" value="MESSAGE QUEUES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF5722;strokeColor=#D84315;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="queue-details" value="• MSK Kafka (AWS)&lt;br&gt;• Oracle Streaming&lt;br&gt;• SQS/Oracle Queue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF7043;strokeColor=#FF5722;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="515" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Object Storage -->
+        <mxCell id="object-storage" value="OBJECT STORAGE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="storage-details" value="• S3 (ML Models/Data)&lt;br&gt;• Oracle Object Storage&lt;br&gt;• Cross-Cloud Sync" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#2196F3;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="410" y="515" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Monitoring Integration -->
+        <mxCell id="monitoring-integration" value="MONITORING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="monitoring-details" value="• Prometheus/Grafana&lt;br&gt;• DataDog APM&lt;br&gt;• Oracle APM Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="515" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Security Integration -->
+        <mxCell id="security-integration" value="SECURITY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F44336;strokeColor=#D32F2F;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="security-details" value="• Fortinet FortiCWP&lt;br&gt;• Oracle Cloud Guard&lt;br&gt;• Istio mTLS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#F44336;fontColor=#ffffff;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="750" y="515" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connection Arrows -->
+        
+        <!-- Cross-Cloud Arrow -->
+        <mxCell id="cross-cloud-arrow" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#FF6F00;strokeWidth=4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aws-eks-cluster" target="oracle-oke-cluster">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="170" as="sourcePoint"/>
+            <mxPoint x="510" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="cross-cloud-label" value="FastConnect 25Gbps&lt;br&gt;Service Mesh" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#FF6F00;fontStyle=1;" vertex="1" connectable="0" parent="cross-cloud-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- API Gateway to Backend Services Arrow -->
+        <mxCell id="api-to-backend-arrow" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#2196F3;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pod-api-gateway" target="pod-iot-service">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="135" as="sourcePoint"/>
+            <mxPoint x="540" y="135" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="500" y="135"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="api-backend-label" value="REST API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#2196F3;fontStyle=1;" vertex="1" connectable="0" parent="api-to-backend-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- IoT to ML Service Arrow -->
+        <mxCell id="iot-to-ml-arrow" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#4CAF50;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pod-iot-service" target="pod-ml-prediction">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="170" as="sourcePoint"/>
+            <mxPoint x="630" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="iot-ml-label" value="Sensor Data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#4CAF50;fontStyle=1;" vertex="1" connectable="0" parent="iot-to-ml-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ML to Analytics Arrow -->
+        <mxCell id="ml-to-analytics-arrow" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF9800;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pod-ml-prediction" target="pod-analytics">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="215" as="sourcePoint"/>
+            <mxPoint x="750" y="135" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="740" y="215"/>
+              <mxPoint x="740" y="135"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="ml-analytics-label" value="Predictions" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#FF9800;fontStyle=1;" vertex="1" connectable="0" parent="ml-to-analytics-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Analytics to AI Assistant Arrow -->
+        <mxCell id="analytics-to-ai-arrow" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#3F51B5;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pod-analytics" target="pod-ai-assistant">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="840" y="170" as="sourcePoint"/>
+            <mxPoint x="840" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="analytics-ai-label" value="Insights" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#3F51B5;fontStyle=1;" vertex="1" connectable="0" parent="analytics-to-ai-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Dashboard to API Gateway Arrow -->
+        <mxCell id="dashboard-to-api-arrow" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#9C27B0;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="pod-dashboard" target="pod-api-gateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="180" as="sourcePoint"/>
+            <mxPoint x="170" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="dashboard-api-label" value="HTTP Calls" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#9C27B0;fontStyle=1;" vertex="1" connectable="0" parent="dashboard-to-api-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

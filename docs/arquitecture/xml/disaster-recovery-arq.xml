@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-09-21T00:00:00.000Z" agent="5.0" etag="disaster-recovery" version="21.6.8" type="device">
+  <diagram name="Disaster-Recovery-Multicloud" id="disaster-recovery">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Header -->
+        <mxCell id="dr-header" value="DISASTER RECOVERY - ARQUITETURA MULTICLOUD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D32F2F;strokeColor=#B71C1C;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1300" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Primary Region -->
+        <mxCell id="aws-primary" value="AWS PRIMARY REGION (us-east-1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="600" height="300" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Production -->
+        <mxCell id="aws-prod-dr" value="PRODUCTION ENVIRONMENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;fontColor=#0D47A1;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="130" width="560" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Primary Services -->
+        <mxCell id="aws-eks-primary" value="EKS CLUSTER&lt;br&gt;IoT + Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-rds-primary" value="RDS PostgreSQL&lt;br&gt;Multi-AZ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-s3-primary" value="S3 BUCKETS&lt;br&gt;Cross-Region Repl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-elasticache-primary" value="ELASTICACHE&lt;br&gt;Redis Cluster" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#1976D2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Backup Strategy -->
+        <mxCell id="aws-backup-strategy" value="BACKUP STRATEGY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontColor=#E65100;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="270" width="560" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Backup Services -->
+        <mxCell id="aws-backup-service" value="AWS BACKUP&lt;br&gt;Centralized&lt;br&gt;Daily: 30d&lt;br&gt;Weekly: 12w" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-snapshot" value="EBS SNAPSHOTS&lt;br&gt;Automated&lt;br&gt;Every 6h&lt;br&gt;Retain: 7d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-rds-snapshot" value="RDS SNAPSHOTS&lt;br&gt;Automated&lt;br&gt;Daily&lt;br&gt;Retain: 35d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-s3-versioning" value="S3 VERSIONING&lt;br&gt;Lifecycle&lt;br&gt;IA: 30d&lt;br&gt;Glacier: 90d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-code-backup" value="CODE REPOSITORY&lt;br&gt;GitHub&lt;br&gt;Git LFS&lt;br&gt;Artifacts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS DR Region -->
+        <mxCell id="aws-dr-region" value="AWS DR REGION (us-west-2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#388E3C;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="430" width="600" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS DR Services -->
+        <mxCell id="aws-dr-infrastructure" value="STANDBY INFRASTRUCTURE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="460" width="560" height="110" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-eks-standby" value="EKS STANDBY&lt;br&gt;Warm Standby&lt;br&gt;20% Capacity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-rds-replica" value="RDS READ REPLICA&lt;br&gt;Cross-Region&lt;br&gt;Async Repl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-s3-replication" value="S3 REPLICA&lt;br&gt;Cross-Region&lt;br&gt;Real-time" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-route53" value="ROUTE 53&lt;br&gt;Health Checks&lt;br&gt;Failover" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-lambda-dr" value="LAMBDA DR&lt;br&gt;Automation&lt;br&gt;Scripts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Primary Region -->
+        <mxCell id="oracle-primary" value="ORACLE PRIMARY REGION (us-ashburn-1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D32F2F;strokeColor=#B71C1C;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="720" y="100" width="600" height="300" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Production -->
+        <mxCell id="oracle-prod-dr" value="PRODUCTION ENVIRONMENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#F44336;fontColor=#D32F2F;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="740" y="130" width="560" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Primary Services -->
+        <mxCell id="oracle-oke-primary" value="OKE CLUSTER&lt;br&gt;ML + Backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#F44336;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-adb-primary" value="AUTONOMOUS DB&lt;br&gt;Primary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#F44336;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-object-primary" value="OBJECT STORAGE&lt;br&gt;Cross-Region Repl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#F44336;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-streaming-primary" value="STREAMING&lt;br&gt;Kafka Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#F44336;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="160" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Backup Strategy -->
+        <mxCell id="oracle-backup-strategy" value="BACKUP STRATEGY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#0277BD;fontColor=#01579B;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="740" y="270" width="560" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Backup Services -->
+        <mxCell id="oracle-backup-service" value="OCI BACKUP&lt;br&gt;Native Service&lt;br&gt;Daily: 30d&lt;br&gt;Weekly: 12w" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4FC3F7;strokeColor=#0277BD;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-block-backup" value="BLOCK VOLUMES&lt;br&gt;Snapshots&lt;br&gt;Every 4h&lt;br&gt;Retain: 14d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4FC3F7;strokeColor=#0277BD;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-adb-backup" value="ADB BACKUPS&lt;br&gt;Automatic&lt;br&gt;Daily RMAN&lt;br&gt;Retain: 60d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4FC3F7;strokeColor=#0277BD;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-object-backup" value="OBJECT LIFECYCLE&lt;br&gt;Archive Storage&lt;br&gt;Standard: 30d&lt;br&gt;Archive: 90d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4FC3F7;strokeColor=#0277BD;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-vault-backup" value="KEY VAULT&lt;br&gt;Secrets&lt;br&gt;Encryption Keys&lt;br&gt;HSM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4FC3F7;strokeColor=#0277BD;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="300" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle DR Region -->
+        <mxCell id="oracle-dr-region" value="ORACLE DR REGION (us-phoenix-1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6A1B9A;strokeColor=#4A148C;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="720" y="430" width="600" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle DR Services -->
+        <mxCell id="oracle-dr-infrastructure" value="STANDBY INFRASTRUCTURE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#8E24AA;fontColor=#4A148C;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="740" y="460" width="560" height="110" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-oke-standby" value="OKE STANDBY&lt;br&gt;Cold Standby&lt;br&gt;IaC Ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AB47BC;strokeColor=#8E24AA;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-adb-standby" value="ADB STANDBY&lt;br&gt;Data Guard&lt;br&gt;Sync Repl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AB47BC;strokeColor=#8E24AA;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-object-replication" value="OBJECT REPLICA&lt;br&gt;Cross-Region&lt;br&gt;Real-time" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AB47BC;strokeColor=#8E24AA;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-dns" value="OCI DNS&lt;br&gt;Traffic Mgmt&lt;br&gt;Geo Routing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AB47BC;strokeColor=#8E24AA;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-functions-dr" value="OCI FUNCTIONS&lt;br&gt;DR Automation&lt;br&gt;Serverless" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AB47BC;strokeColor=#8E24AA;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="490" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Cross-Cloud DR Strategy -->
+        <mxCell id="cross-cloud-dr" value="CROSS-CLOUD DISASTER RECOVERY STRATEGY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="610" width="1250" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- RTO/RPO Objectives -->
+        <mxCell id="rto-rpo" value="RTO/RPO OBJECTIVES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF5722;strokeColor=#D84315;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="640" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="rto-details" value="RTO (Recovery Time):&lt;br&gt;• Critical: &lt; 1 hour&lt;br&gt;• Important: &lt; 4 hours&lt;br&gt;• Standard: &lt; 24 hours" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF7043;strokeColor=#FF5722;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="100" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="rpo-details" value="RPO (Data Loss):&lt;br&gt;• Critical: &lt; 15 min&lt;br&gt;• Important: &lt; 1 hour&lt;br&gt;• Standard: &lt; 24 hours" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF7043;strokeColor=#FF5722;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="190" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Data Synchronization -->
+        <mxCell id="data-sync" value="DATA SYNCHRONIZATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="310" y="640" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-oracle-sync" value="AWS ↔ Oracle:&lt;br&gt;• FastConnect 25Gbps&lt;br&gt;• Database Replication&lt;br&gt;• File Sync (rsync)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#2196F3;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="320" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="real-time-sync" value="Real-time:&lt;br&gt;• Event Streaming&lt;br&gt;• CDC (Change Data)&lt;br&gt;• API Replication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42A5F5;strokeColor=#2196F3;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="410" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Failover Scenarios -->
+        <mxCell id="failover-scenarios" value="FAILOVER SCENARIOS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="530" y="640" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-failure" value="AWS Failure:&lt;br&gt;• Oracle Primary&lt;br&gt;• Route 53 Failover&lt;br&gt;• Auto Scale-up" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="540" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-failure" value="Oracle Failure:&lt;br&gt;• AWS Primary&lt;br&gt;• DNS Failover&lt;br&gt;• Lambda Triggers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#4CAF50;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="630" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Monitoring & Alerts -->
+        <mxCell id="monitoring-alerts-dr" value="MONITORING &amp; ALERTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="750" y="640" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="health-checks" value="Health Checks:&lt;br&gt;• Synthetic Tests&lt;br&gt;• Endpoint Monitoring&lt;br&gt;• Database Ping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="760" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="alert-channels" value="Alert Channels:&lt;br&gt;• PagerDuty&lt;br&gt;• Slack/Teams&lt;br&gt;• SMS/Email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="850" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Testing & Validation -->
+        <mxCell id="testing-validation" value="TESTING &amp; VALIDATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="970" y="640" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="dr-testing" value="DR Testing:&lt;br&gt;• Monthly Tests&lt;br&gt;• Chaos Engineering&lt;br&gt;• Runbook Updates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BA68C8;strokeColor=#9C27B0;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="980" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="validation" value="Validation:&lt;br&gt;• Data Integrity&lt;br&gt;• Function Tests&lt;br&gt;• Performance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BA68C8;strokeColor=#9C27B0;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="665" width="80" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Automation Scripts -->
+        <mxCell id="automation-scripts" value="AUTOMATION SCRIPTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607D8B;strokeColor=#455A64;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="640" width="120" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="automation-details" value="• Terraform IaC&lt;br&gt;• Ansible Playbooks&lt;br&gt;• Lambda/Functions&lt;br&gt;• ArgoCD GitOps&lt;br&gt;• Helm Charts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#78909C;strokeColor=#607D8B;fontColor=#ffffff;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="665" width="100" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connection Arrows -->
+        
+        <!-- AWS Primary to DR -->
+        <mxCell id="aws-primary-to-dr" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#1976D2;strokeWidth=3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="aws-primary" target="aws-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="400" as="sourcePoint"/>
+            <mxPoint x="370" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="aws-replication-label" value="Cross-Region&lt;br&gt;Replication" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#1976D2;fontStyle=1;" vertex="1" connectable="0" parent="aws-primary-to-dr">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Oracle Primary to DR -->
+        <mxCell id="oracle-primary-to-dr" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#D32F2F;strokeWidth=3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="oracle-primary" target="oracle-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1020" y="400" as="sourcePoint"/>
+            <mxPoint x="1020" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="oracle-replication-label" value="Data Guard&lt;br&gt;Sync Replication" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#D32F2F;fontStyle=1;" vertex="1" connectable="0" parent="oracle-primary-to-dr">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Cross-Cloud Primary Connection -->
+        <mxCell id="cross-cloud-primary" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#FF6F00;strokeWidth=4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aws-primary" target="oracle-primary">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="250" as="sourcePoint"/>
+            <mxPoint x="720" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="cross-cloud-primary-label" value="FastConnect 25Gbps&lt;br&gt;Real-time Sync" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#FF6F00;fontStyle=1;" vertex="1" connectable="0" parent="cross-cloud-primary">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Cross-Cloud DR Connection -->
+        <mxCell id="cross-cloud-dr-connection" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#9C27B0;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aws-dr-region" target="oracle-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="505" as="sourcePoint"/>
+            <mxPoint x="720" y="505" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="cross-cloud-dr-label" value="DR Coordination&lt;br&gt;Health Checks" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#9C27B0;fontStyle=1;" vertex="1" connectable="0" parent="cross-cloud-dr-connection">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- AWS to Oracle Diagonal Failover -->
+        <mxCell id="aws-to-oracle-failover" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#4CAF50;strokeWidth=3;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="aws-primary" target="oracle-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="400" as="sourcePoint"/>
+            <mxPoint x="720" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="aws-oracle-failover-label" value="AWS Failure&lt;br&gt;→ Oracle DR" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#4CAF50;fontStyle=1;" vertex="1" connectable="0" parent="aws-to-oracle-failover">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Oracle to AWS Diagonal Failover -->
+        <mxCell id="oracle-to-aws-failover" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF5722;strokeWidth=3;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="oracle-primary" target="aws-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="400" as="sourcePoint"/>
+            <mxPoint x="670" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="oracle-aws-failover-label" value="Oracle Failure&lt;br&gt;→ AWS DR" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#FF5722;fontStyle=1;" vertex="1" connectable="0" parent="oracle-to-aws-failover">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Backup Strategy Connections -->
+        <mxCell id="backup-monitoring-connection" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#37474F;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cross-cloud-dr" target="oracle-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="695" y="610" as="sourcePoint"/>
+            <mxPoint x="1020" y="580" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="695" y="590"/>
+              <mxPoint x="1020" y="590"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="backup-aws-connection" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#37474F;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cross-cloud-dr" target="aws-dr-region">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="695" y="610" as="sourcePoint"/>
+            <mxPoint x="370" y="580" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="695" y="590"/>
+              <mxPoint x="370" y="590"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="LEGEND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#263238;strokeColor=#37474F;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="760" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="legend-content" value="🔄 Real-time Sync | ⚡ Automated Failover | 📊 Monitoring | 🔒 Encrypted | ☁️ Cross-Cloud | 🚨 Alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="760" width="940" height="30" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
