@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-09-21T00:00:00.000Z" agent="5.0" etag="messaging-topics" version="21.6.8" type="device">
+  <diagram name="Messaging-Topics-Architecture" id="messaging-topics">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Header -->
+        <mxCell id="messaging-header" value="ARQUITETURA DE MENSAGERIA MULTICLOUD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Messaging Section -->
+        <mxCell id="aws-messaging-section" value="AWS MESSAGING TOPICS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="500" height="300" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Topic 1: IoT Raw Data -->
+        <mxCell id="aws-topic-iot-raw" value="iot-raw-data-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="140" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-topic-iot-details" value="Partitions: 8 | Throughput: 5MB/s&lt;br&gt;Format: Avro Schema&lt;br&gt;&lt;br&gt;🟢 Producer: IoT Data Service&lt;br&gt;🟡 Consumer: Cross-Cloud Bridge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="95" y="165" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Topic 2: Dashboard Events -->
+        <mxCell id="aws-topic-dashboard" value="dashboard-events-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="320" y="140" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-topic-dashboard-details" value="Partitions: 3 | Throughput: 500KB/s&lt;br&gt;Format: JSON Schema&lt;br&gt;&lt;br&gt;🟢 Producer: Dashboard Frontend&lt;br&gt;🟡 Consumer: Analytics Bridge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;fontColor=#7B1FA2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="325" y="165" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Topic 3: Cross Cloud Sync -->
+        <mxCell id="aws-topic-cross-cloud" value="cross-cloud-sync-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="240" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-topic-cross-details" value="Partitions: 6 | Throughput: 2MB/s&lt;br&gt;Format: Avro + Protobuf&lt;br&gt;&lt;br&gt;🟢 Producer: IoT + Dashboard&lt;br&gt;🟡 Consumer: Oracle Bridge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontColor=#E65100;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="95" y="265" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Topic 4: Maintenance Alerts -->
+        <mxCell id="aws-topic-alerts" value="maintenance-alerts-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F44336;strokeColor=#D32F2F;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="320" y="240" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-topic-alerts-details" value="Partitions: 4 | Throughput: 1MB/s&lt;br&gt;Format: JSON Schema&lt;br&gt;&lt;br&gt;🟢 Producer: Oracle Analytics&lt;br&gt;🟡 Consumer: Dashboard + SNS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#F44336;fontColor=#D32F2F;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="325" y="265" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Services -->
+        <mxCell id="aws-services-section" value="AWS MESSAGING SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="340" width="430" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-kafka" value="MSK KAFKA&lt;br&gt;Port: 9092" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-sqs" value="SQS QUEUES&lt;br&gt;Dead Letter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-sns" value="SNS TOPICS&lt;br&gt;Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E91E63;strokeColor=#C2185B;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="aws-lambda" value="LAMBDA&lt;br&gt;Processors" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Messaging Section -->
+        <mxCell id="oracle-messaging-section" value="ORACLE STREAMING TOPICS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D32F2F;strokeColor=#B71C1C;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="620" y="100" width="500" height="300" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Topic 1: Equipment Data -->
+        <mxCell id="oracle-topic-equipment" value="equipment-data-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-topic-equipment-details" value="Partitions: 10 | Throughput: 3MB/s&lt;br&gt;Format: Parquet Schema&lt;br&gt;&lt;br&gt;🟢 Producer: Equipment Service&lt;br&gt;🟡 Consumer: Analytics Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;fontColor=#0D47A1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="645" y="165" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Topic 2: Sensor Analytics -->
+        <mxCell id="oracle-topic-sensor" value="sensor-analytics-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="870" y="140" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-topic-sensor-details" value="Partitions: 8 | Throughput: 4MB/s&lt;br&gt;Format: Avro Schema&lt;br&gt;&lt;br&gt;🟢 Producer: Analytics Service&lt;br&gt;🟡 Consumer: ML Predictions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontColor=#E65100;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="875" y="165" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Topic 3: Maintenance Predictions -->
+        <mxCell id="oracle-topic-predictions" value="maintenance-predictions-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8E24AA;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="640" y="240" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-topic-predictions-details" value="Partitions: 6 | Throughput: 2MB/s&lt;br&gt;Format: JSON + ML Models&lt;br&gt;&lt;br&gt;🟢 Producer: Analytics Service&lt;br&gt;🟡 Consumer: Cross-Cloud Bridge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;fontColor=#7B1FA2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="645" y="265" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Topic 4: Operational Insights -->
+        <mxCell id="oracle-topic-insights" value="operational-insights-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="870" y="240" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-topic-insights-details" value="Partitions: 4 | Throughput: 1.5MB/s&lt;br&gt;Format: Parquet Schema&lt;br&gt;&lt;br&gt;🟢 Producer: Analytics Service&lt;br&gt;🟡 Consumer: Dashboard + Reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#4CAF50;fontColor=#2E7D32;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="875" y="265" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Oracle Services -->
+        <mxCell id="oracle-services-section" value="ORACLE MESSAGING SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="640" y="340" width="430" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-streaming" value="STREAMING&lt;br&gt;Port: 9092" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-queue" value="QUEUE SERVICE&lt;br&gt;Message Queue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607D8B;strokeColor=#455A64;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-events" value="EVENTS SERVICE&lt;br&gt;Event-driven" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="oracle-functions" value="FUNCTIONS&lt;br&gt;Serverless" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#795548;strokeColor=#5D4037;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="360" width="80" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- Cross-Cloud Bridge -->
+        <mxCell id="cross-cloud-bridge" value="CROSS-CLOUD MESSAGE BRIDGE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="430" y="440" width="340" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- FastConnect Details -->
+        <mxCell id="fastconnect-details" value="FASTCONNECT 25GBPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="470" width="120" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="kafka-connect" value="KAFKA CONNECT&lt;br&gt;Cross-Cloud Sync" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#FF9800;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="470" width="120" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="schema-registry" value="SCHEMA REGISTRY&lt;br&gt;Avro/Protobuf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFAB91;strokeColor=#FF5722;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="510" width="120" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="dlq-management" value="DLQ MANAGEMENT&lt;br&gt;Error Handling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#E91E63;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="510" width="120" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Data Flow Patterns -->
+        <mxCell id="data-flow-patterns" value="DATA FLOW PATTERNS &amp; INTEGRATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="590" width="1050" height="160" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pattern 1: IoT to Analytics -->
+        <mxCell id="pattern-iot-analytics" value="IOT → ANALYTICS FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="620" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="pattern-iot-details" value="1. IoT Data Service&lt;br&gt;2. iot-raw-data-topic&lt;br&gt;3. cross-cloud-sync-topic&lt;br&gt;4. equipment-data-topic&lt;br&gt;5. Analytics Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;fontColor=#0D47A1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="95" y="645" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pattern 2: Analytics to Dashboard -->
+        <mxCell id="pattern-analytics-dashboard" value="ANALYTICS → DASHBOARD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8E24AA;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="310" y="620" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="pattern-analytics-details" value="1. Analytics Service&lt;br&gt;2. maintenance-predictions&lt;br&gt;3. cross-cloud-sync&lt;br&gt;4. maintenance-alerts&lt;br&gt;5. Dashboard Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;fontColor=#7B1FA2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="315" y="645" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pattern 3: Equipment Management -->
+        <mxCell id="pattern-equipment" value="EQUIPMENT MANAGEMENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="530" y="620" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="pattern-equipment-details" value="1. Equipment Service&lt;br&gt;2. equipment-data-topic&lt;br&gt;3. sensor-analytics-topic&lt;br&gt;4. operational-insights&lt;br&gt;5. Cross-Cloud Reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;fontColor=#0D47A1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="535" y="645" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pattern 4: Error Handling -->
+        <mxCell id="pattern-error" value="ERROR HANDLING &amp; DLQ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F44336;strokeColor=#D32F2F;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="750" y="620" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="pattern-error-details" value="1. Message Failure&lt;br&gt;2. Dead Letter Queue&lt;br&gt;3. Error Analysis&lt;br&gt;4. Retry Logic&lt;br&gt;5. Alert Teams" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#F44336;fontColor=#D32F2F;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="755" y="645" width="190" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Pattern 5: Monitoring -->
+        <mxCell id="pattern-monitoring" value="MONITORING &amp; ALERTING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="970" y="620" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="pattern-monitoring-details" value="• Topic Lag Monitor&lt;br&gt;• Throughput Metrics&lt;br&gt;• Error Rate Alerts&lt;br&gt;• Cross-Cloud Health&lt;br&gt;• Performance KPIs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontColor=#E65100;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="975" y="645" width="130" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- Cross-Cloud Connection Arrow -->
+        <mxCell id="cross-cloud-arrow" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#FF6F00;strokeWidth=5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aws-messaging-section" target="oracle-messaging-section">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="250" as="sourcePoint"/>
+            <mxPoint x="620" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="cross-cloud-label" value="FastConnect 25Gbps&lt;br&gt;Cross-Cloud Messaging" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#FF6F00;fontStyle=1;" vertex="1" connectable="0" parent="cross-cloud-arrow">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

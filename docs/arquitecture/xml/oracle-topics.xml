@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-09-21T00:00:00.000Z" agent="5.0" etag="oracle-topics" version="21.6.8" type="device">
+  <diagram name="Oracle-Topics-Simple" id="oracle-topics">
+    <mxGraphModel dx="600" dy="300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="600" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Topics Header -->
+        <mxCell id="topics-header" value="ORACLE STREAMING TOPICS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="500" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 1: Equipment Data -->
+        <mxCell id="topic-equipment" value="equipment-data-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="equipment-details" value="Partitions: 4 | Throughput: 500KB/s | Retention: 7d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;fontColor=#0D47A1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="115" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 2: Sensor Analytics -->
+        <mxCell id="topic-sensor" value="sensor-analytics-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF5722;strokeColor=#D84315;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="80" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="sensor-details" value="Partitions: 8 | Throughput: 2MB/s | Retention: 3d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#FF5722;fontColor=#D84315;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="230" y="115" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 3: Maintenance Predictions -->
+        <mxCell id="topic-predictions" value="maintenance-predictions-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="predictions-details" value="Partitions: 6 | Throughput: 1MB/s | Retention: 30d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;fontColor=#7B1FA2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="390" y="115" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 4: Maintenance Notifications -->
+        <mxCell id="topic-notifications" value="maintenance-notifications-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="160" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="notifications-details" value="Partitions: 4 | Throughput: 200KB/s | Retention: 14d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#4CAF50;fontColor=#2E7D32;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="195" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 5: Operational Insights -->
+        <mxCell id="topic-insights" value="operational-insights-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="160" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="insights-details" value="Partitions: 6 | Throughput: 800KB/s | Retention: 90d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontColor=#E65100;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="230" y="195" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Message Format Info -->
+        <mxCell id="format-info" value="FORMATS: Avro (structured) | JSON (events) | Protobuf (performance)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="390" y="175" width="140" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Services Row -->
+        <mxCell id="services-header" value="ORACLE MESSAGING SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607D8B;strokeColor=#455A64;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="500" height="30" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -525,3 +525,7 @@ devsecops-challenge-aws/
 3.  **Desenvolver microserviços principais**
 4.  **Configurar pipeline CI/CD**
 5.  **Implementar monitoramento e alertas**
+
+
+
+Claude, você pode gerar um xml somente com essas conexões, mostrando a separação das clouds e as suas conexões por meio dos tópicos e do cross-cloud-sync-topic, por favor ?

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-09-21T00:00:00.000Z" agent="5.0" etag="aws-topics" version="21.6.8" type="device">
+  <diagram name="AWS-Topics" id="aws-topics">
+    <mxGraphModel dx="600" dy="350" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="600" pageHeight="350" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- AWS Topics Header -->
+        <mxCell id="aws-topics-header" value="AWS MESSAGING TOPICS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="500" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 1: IoT Raw Data -->
+        <mxCell id="iot-raw-data-topic" value="iot-raw-data-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="130" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="iot-details" value="Partitions: 8 | Throughput: 5MB/s | Retention: 24h" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#4CAF50;fontColor=#2E7D32;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="115" width="130" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 2: Frontend Events -->
+        <mxCell id="frontend-events-topic" value="frontend-events-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="80" width="130" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="frontend-details" value="Partitions: 4 | Throughput: 300KB/s | Retention: 3d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;fontColor=#7B1FA2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="220" y="115" width="130" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 3: User Notifications -->
+        <mxCell id="user-notifications-topic" value="user-notifications-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF5722;strokeColor=#D84315;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="80" width="130" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="notifications-details" value="Partitions: 4 | Throughput: 200KB/s | Retention: 7d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#FF5722;fontColor=#D84315;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="370" y="115" width="130" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 4: Cross-Cloud Sync -->
+        <mxCell id="cross-cloud-sync-topic" value="cross-cloud-sync-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="160" width="130" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="sync-details" value="Partitions: 6 | Throughput: 1.5MB/s | Retention: 1d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;fontColor=#E65100;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="195" width="130" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 5: API Gateway Events -->
+        <mxCell id="api-gateway-events-topic" value="api-gateway-events-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607D8B;strokeColor=#455A64;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="160" width="130" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="api-events-details" value="Partitions: 4 | Throughput: 500KB/s | Retention: 2d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;fontColor=#455A64;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="220" y="195" width="130" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Topic 6: System Health -->
+        <mxCell id="system-health-topic" value="system-health-topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#795548;strokeColor=#5D4037;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="160" width="130" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="health-details" value="Partitions: 3 | Throughput: 100KB/s | Retention: 30d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFEBE9;strokeColor=#795548;fontColor=#5D4037;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="370" y="195" width="130" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Services -->
+        <mxCell id="aws-services-header" value="AWS MESSAGING SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="500" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- MSK Kafka -->
+        <mxCell id="msk-kafka" value="MSK KAFKA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="285" width="90" height="35" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="msk-details" value="Port: 9092" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FF9800;fontColor=#E65100;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="70" height="15" as="geometry"/>
+        </mxCell>
+        
+        <!-- SQS -->
+        <mxCell id="sqs-service" value="SQS QUEUES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="285" width="90" height="35" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="sqs-details" value="HTTPS API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#4CAF50;fontColor=#2E7D32;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="190" y="300" width="70" height="15" as="geometry"/>
+        </mxCell>
+        
+        <!-- SNS -->
+        <mxCell id="sns-service" value="SNS TOPICS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="285" width="90" height="35" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="sns-details" value="Pub/Sub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#2196F3;fontColor=#0D47A1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="70" height="15" as="geometry"/>
+        </mxCell>
+        
+        <!-- EventBridge -->
+        <mxCell id="eventbridge-service" value="EVENTBRIDGE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="285" width="90" height="35" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="eventbridge-details" value="Event Router" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#9C27B0;fontColor=#4A148C;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="410" y="300" width="70" height="15" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
